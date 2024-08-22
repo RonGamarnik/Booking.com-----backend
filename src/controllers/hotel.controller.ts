@@ -98,14 +98,8 @@
 //     }
 // };
 
-
-
-
-
-
-
 import { Request, Response } from "express";
-import Hotel from "../models/Hotel";
+import Hotel from "../models/hotel.model";
 
 // Create a new hotel
 export const createHotel = async (req: Request, res: Response) => {
