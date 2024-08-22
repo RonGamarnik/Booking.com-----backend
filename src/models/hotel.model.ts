@@ -11,19 +11,26 @@ interface IReview {
   rating: number;
 }
 
+interface IAvailableRoom {
+  roomId: string;
+  quantity: number;
+}
+
 export interface IHotel extends Document {
   name: string;
-  address: string;
+  city: string;
   scoreNumber: number;
   scoreLetter: string;
   reviewsCount: number;
   price: string;
   description: string;
-  hotelLink: string;
   image: string;
-  rooms: Types.ObjectId[];
+  distance: string;
+  freeCancellation: boolean;
+  prepayment: boolean;
   facilities: IFacility[];
   guestReviews: IReview[];
+  availableRoom: Record<string, number>;
 }
 
 const FacilitySchema: Schema = new Schema({
@@ -38,17 +45,19 @@ const ReviewSchema: Schema = new Schema({
 
 const HotelSchema: Schema = new Schema({
   name: { type: String, required: true },
-  address: { type: String, required: true },
+  city: { type: String, required: true },
   scoreNumber: { type: Number, required: true, min: 0, max: 10 },
   scoreLetter: { type: String, required: true },
   reviewsCount: { type: Number, required: true },
   price: { type: String, required: true },
   description: { type: String, required: true },
-  hotelLink: { type: String, required: true },
   image: { type: String, required: true },
-  rooms: [{ type: Schema.Types.ObjectId, ref: "Room" }],
+  distance: { type: String, required: true },
+  freeCancellation: { type: Boolean, required: true },
+  prepayment: { type: Boolean, required: true },
   facilities: { type: [FacilitySchema], required: true },
   guestReviews: { type: [ReviewSchema], required: true },
+  availableRoom: { type: Map, of: Number, required: true }, // A map for room availability
 });
 
 // Export the model with the IHotel interface
