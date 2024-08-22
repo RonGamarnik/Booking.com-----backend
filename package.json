@@ -2,10 +2,12 @@
   "name": "booking.com-----backend",
   "version": "1.0.0",
   "description": "booking clone project(backend)",
-  "main": "index.js",
-  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "ts-node-dev src/index.ts",
+    "seed": "ts-node src/seed.ts"
   },
   "keywords": [],
   "author": "",

@@ -3,6 +3,12 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/user.model";
 import { createError } from "../utils/error";
+import UserModel from "../models/user.model";
+
+// Define AuthRequest interface to include userId
+interface AuthRequest extends Request {
+  userId?: string;
+}
 
 // Check if the email exists
 export const checkEmail = async (
@@ -100,5 +106,28 @@ export const register = async (
     });
   } catch (error) {
     next(createError(500, (error as Error).message));
+  }
+};
+
+// Controller to get the logged-in user's data
+export const getLoggedInUser = async (req: AuthRequest, res: Response) => {
+  try {
+    // Find the user by ID, excluding the password field
+    const user = await UserModel.findById(req.userId).select("-password");
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Send the user data as a JSON response
+    res.json({
+      _id: user._id,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    });
+  } catch (err) {
+    // Log the error and return a generic 500 response
+    console.error("Error fetching logged-in user data:", err);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };

@@ -1,11 +1,10 @@
+"use strict";
 // import Room from "../models/Room.js";
 // import Hotel from "../models/Hotel.js";
 // import { createError } from "../utils/error.js";
-
 // export const createRoom = async (req, res, next) => {
 //     const hotelId = req.params.hotelid;
 //     const newRoom = new Room(req.body);
-
 //     try {
 //         const savedRoom = await newRoom.save();
 //         try {
@@ -20,7 +19,6 @@
 //         next(err);
 //     }
 // };
-
 // export const updateRoom = async (req, res, next) => {
 //     try {
 //         const updatedRoom = await Room.findByIdAndUpdate(

@@ -4,7 +4,7 @@ import {
   getUserProfile,
   deleteUser,
 } from "../controllers/user.controller";
-import { verifyUser } from "../utils/verifyToken";
+import { verifyUser } from "../middleware/auth.middleware";
 
 const router = express.Router();
 

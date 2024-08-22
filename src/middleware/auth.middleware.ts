@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { createError } from "./error";
+import { createError } from "../utils/error";
 
 // Extend the Request interface to include userId
 interface AuthenticatedRequest extends Request {

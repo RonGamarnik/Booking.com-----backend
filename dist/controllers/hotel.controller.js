@@ -1,9 +1,8 @@
+"use strict";
 // // import HotelSchema from "../models/Hotel.js";
 // // import Room from "../models/Room.js";
-
 // // export const createHotel = async (req, res, next) => {
 // //     const newHotel = new HotelSchema(req.body);
-
 // //     try {
 // //         const savedHotel = await newHotel.save();
 // //         res.status(200).json(savedHotel);
@@ -71,7 +70,6 @@
 // //         const resortCount = await HotelSchema.countDocuments({ type: "resort" });
 // //         const villaCount = await HotelSchema.countDocuments({ type: "villa" });
 // //         const cabinCount = await HotelSchema.countDocuments({ type: "cabin" });
-
 // //         res.status(200).json([
 // //             { type: "hotel", count: hotelCount },
 // //             { type: "apartments", count: apartmentCount },
@@ -83,7 +81,6 @@
 // //         next(err);
 // //     }
 // // };
-
 // // export const getHotelRooms = async (req, res, next) => {
 // //     try {
 // //         const hotel = await HotelSchema.findById(req.params.id);
@@ -97,10 +94,8 @@
 // //         next(err);
 // //     }
 // // };
-
 // import { Request, Response } from "express";
 // import Hotel from "../models/hotel.model";
-
 // // Create a new hotel
 // export const createHotel = async (req: Request, res: Response) => {
 //   try {
@@ -111,7 +106,6 @@
 //     res.status(500).json({ message: error.message });
 //   }
 // };
-
 // // Get all hotels
 // export const getHotels = async (req: Request, res: Response) => {
 //   try {
@@ -121,7 +115,6 @@
 //     res.status(500).json({ message: error.message });
 //   }
 // };
-
 // // Get a hotel by ID
 // export const getHotelById = async (req: Request, res: Response) => {
 //   try {
@@ -134,7 +127,6 @@
 //     res.status(500).json({ message: error.message });
 //   }
 // };
-
 // // Update a hotel
 // export const updateHotel = async (req: Request, res: Response) => {
 //   try {
@@ -151,7 +143,6 @@
 //     res.status(500).json({ message: error.message });
 //   }
 // };
-
 // // Delete a hotel
 // export const deleteHotel = async (req: Request, res: Response) => {
 //   try {
@@ -164,13 +155,11 @@
 //     res.status(500).json({ message: error.message });
 //   }
 // };
-
 // // Get hotels by city (with optional filters)
 // export const getHotelsByCity = async (req: Request, res: Response) => {
 //   const city = req.query.city as string;
 //   const minPrice = Number(req.query.minPrice) || 0;
 //   const maxPrice = Number(req.query.maxPrice) || 10000;
-
 //   try {
 //     const hotels = await Hotel.find({
 //       city: city,
