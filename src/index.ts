@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.routes";
 import usersRoute from "./routes/users.routes";
-import hotelsRoute from "./routes/hotels.routes";
-import roomsRoute from "./routes/rooms.routes";
+// import hotelsRoute from "./routes/hotels.routes";
+// import roomsRoute from "./routes/rooms.routes";
 import cors from "cors";
 import { createError } from "./utils/error"; // Assuming this exists in utils folder
 
@@ -35,8 +35,8 @@ app.use(express.json());
 // Routes
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
-app.use("/api/hotels", hotelsRoute);
-app.use("/api/rooms", roomsRoute);
+// app.use("/api/hotels", hotelsRoute);
+// app.use("/api/rooms", roomsRoute);
 
 // Centralized Error Handling Middleware
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
