@@ -1,33 +1,14 @@
-// import express from "express";
-// import {
-//   countByCity,
-//   countByType,
-//   createHotel,
-//   deleteHotel,
-//   getHotel,
-//   getHotelRooms,
-//   getHotels,
-//   updateHotel,
-// } from "../controllers/hotel.controller";
+import express from "express";
+import {
+  getHotelById,
+  getHotels,
+  updateRoomAvailability,
+} from "../controllers/hotel.controller";
 
-// import { verifyAdmin } from "../middleware/auth.middleware.js";
-// const router = express.Router();
+const router = express.Router();
 
-// //CREATE
-// router.post("/", verifyAdmin, createHotel);
+router.get("/:id", getHotelById);
+router.get("/", getHotels);
+router.put("/availability", updateRoomAvailability); // Updating room availability
 
-// //UPDATE
-// router.put("/:id", verifyAdmin, updateHotel);
-// //DELETE
-// router.delete("/:id", verifyAdmin, deleteHotel);
-// //GET
-
-// router.get("/find/:id", getHotel);
-// //GET ALL
-
-// router.get("/", getHotels);
-// router.get("/countByCity", countByCity);
-// router.get("/countByType", countByType);
-// router.get("/room/:id", getHotelRooms);
-
-// export default router;
+export default router;
