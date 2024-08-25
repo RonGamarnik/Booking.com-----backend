@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import Hotel from './models/Hotel.js'; // Update the path as needed
 import Room from './models/Room.js';
 import User from './models/User.js';
-
 dotenv.config();
 
 const connect = async () => {

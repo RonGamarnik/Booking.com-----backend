@@ -78,9 +78,6 @@ const register = async (req, res, next) => {
             user: {
                 id: savedUser._id,
                 email: savedUser.email,
-                firstName: savedUser.firstName,
-                lastName: savedUser.lastName,
-                displayName: savedUser.displayName,
             },
         });
     }
@@ -101,8 +98,6 @@ const getLoggedInUser = async (req, res) => {
         res.json({
             _id: user._id,
             email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
         });
     }
     catch (err) {
