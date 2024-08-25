@@ -14,9 +14,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const connection = createConnection({
   host:process.env.AIVAN_HOST ,
-  user: 'avnadmin',
+  user:process.env.AIVAN_USERNAME ,
   password:process.env.AIVAN_PASSWORD ,
-  database: 'defaultdb',
+  database:process.env.AIVAN_DB,
   connectTimeout: 30000, 
   port: 20285,
   ssl: {
