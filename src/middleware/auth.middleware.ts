@@ -24,6 +24,8 @@ export function verifyToken(
       userId: string;
     };
     req.userId = decoded.userId; // Attach the userId to the request object
+    console.log("User ID from token:", req.userId);
+
     next(); // Call the next middleware
   } catch (error) {
     console.log(error);
