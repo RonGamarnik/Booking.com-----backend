@@ -36,7 +36,7 @@ const login = async (req, res, next) => {
         const isPasswordCorrect = await bcryptjs_1.default.compare(password, user.password);
         if (!isPasswordCorrect)
             return next((0, error_1.createError)(400, "Invalid password"));
-        const token = jsonwebtoken_1.default.sign({ id: user._id }, process.env.JWT_SECRET, {
+        const token = jsonwebtoken_1.default.sign({ userId: user._id }, process.env.JWT_SECRET, {
             expiresIn: "1d",
         });
         res.status(200).json({
@@ -69,7 +69,7 @@ const register = async (req, res, next) => {
             password: hashedPassword,
         });
         const savedUser = await newUser.save();
-        const token = jsonwebtoken_1.default.sign({ id: savedUser._id }, process.env.JWT_SECRET, {
+        const token = jsonwebtoken_1.default.sign({ userId: savedUser._id }, process.env.JWT_SECRET, {
             expiresIn: "1d",
         });
         res.status(201).json({
